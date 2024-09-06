@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9771aa4108158fe74904aaa4d287f485",
+    "content-hash": "29d77f6e7a06a7c07cd9683b2ba9bf79",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -71,6 +71,77 @@
                 "source": "https://github.com/AnourValar/eloquent-serialize/tree/1.2.23"
             },
             "time": "2024-07-12T10:52:26+00:00"
+        },
+        {
+            "name": "awcodes/shout",
+            "version": "v2.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/awcodes/shout.git",
+                "reference": "c9893a7defd362b7502f3e60d5ca1ef604ef8f07"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/awcodes/shout/zipball/c9893a7defd362b7502f3e60d5ca1ef604ef8f07",
+                "reference": "c9893a7defd362b7502f3e60d5ca1ef604ef8f07",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "php": "^8.1",
+                "spatie/laravel-package-tools": "^1.15"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.0",
+                "nunomaduro/collision": "^7.9|^8.1",
+                "orchestra/testbench": "^8.0|^9.0",
+                "pestphp/pest": "^2.1",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "pestphp/pest-plugin-livewire": "^2.1",
+                "spatie/laravel-ray": "^1.26"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Awcodes\\Shout\\ShoutServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Awcodes\\Shout\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Weston",
+                    "email": "awcodes1@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A simple inline contextual notice for Filament forms, basically just a fancy placeholder.",
+            "homepage": "https://github.com/awcodes/shout",
+            "keywords": [
+                "awcodes",
+                "filament",
+                "shout"
+            ],
+            "support": {
+                "issues": "https://github.com/awcodes/shout/issues",
+                "source": "https://github.com/awcodes/shout"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/awcodes",
+                    "type": "github"
+                }
+            ],
+            "time": "2024-08-25T15:29:24+00:00"
         },
         {
             "name": "blade-ui-kit/blade-heroicons",
@@ -1638,6 +1709,80 @@
                 "source": "https://github.com/filamentphp/filament"
             },
             "time": "2024-01-02T23:08:01+00:00"
+        },
+        {
+            "name": "flowframe/laravel-trend",
+            "version": "v0.1.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowframe/laravel-trend.git",
+                "reference": "bc43bf7840ff60aca39e856ad96f5e990fac83d7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowframe/laravel-trend/zipball/bc43bf7840ff60aca39e856ad96f5e990fac83d7",
+                "reference": "bc43bf7840ff60aca39e856ad96f5e990fac83d7",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "^8.37|^9|^10.0",
+                "php": "^8.0",
+                "spatie/laravel-package-tools": "^1.4.3"
+            },
+            "require-dev": {
+                "nunomaduro/collision": "^5.3|^6.1",
+                "orchestra/testbench": "^6.15|^7.0|^8.0",
+                "pestphp/pest": "^1.18",
+                "pestphp/pest-plugin-laravel": "^1.1",
+                "spatie/laravel-ray": "^1.23",
+                "vimeo/psalm": "^4.8|^5.6"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Flowframe\\Trend\\TrendServiceProvider"
+                    ],
+                    "aliases": {
+                        "Trend": "Flowframe\\Trend\\TrendFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowframe\\Trend\\": "src",
+                    "Flowframe\\Trend\\Database\\Factories\\": "database/factories"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Lars Klopstra",
+                    "email": "lars@flowframe.nl",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Easily generate model trends",
+            "homepage": "https://github.com/flowframe/laravel-trend",
+            "keywords": [
+                "Flowframe",
+                "laravel",
+                "laravel-trend"
+            ],
+            "support": {
+                "issues": "https://github.com/Flowframe/laravel-trend/issues",
+                "source": "https://github.com/Flowframe/laravel-trend/tree/v0.1.5"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/larsklopstra",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-03-22T20:51:43+00:00"
         },
         {
             "name": "fruitcake/php-cors",
@@ -4921,6 +5066,68 @@
                 "source": "https://github.com/bobthecow/psysh/tree/v0.12.4"
             },
             "time": "2024-06-10T01:18:23+00:00"
+        },
+        {
+            "name": "pxlrbt/filament-environment-indicator",
+            "version": "v2.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pxlrbt/filament-environment-indicator.git",
+                "reference": "8942ad37142298a6eaf7fed747dd9c90402b0ba5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pxlrbt/filament-environment-indicator/zipball/8942ad37142298a6eaf7fed747dd9c90402b0ba5",
+                "reference": "8942ad37142298a6eaf7fed747dd9c90402b0ba5",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0-stable",
+                "php": "^8.0"
+            },
+            "require-dev": {
+                "laravel/pint": "^1.10"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "\\pxlrbt\\FilamentEnvironmentIndicator\\FilamentEnvironmentIndicatorServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "pxlrbt\\FilamentEnvironmentIndicator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Dennis Koch",
+                    "email": "info@pixelarbeit.de"
+                }
+            ],
+            "description": "Indicator for the current environment inside Filament",
+            "keywords": [
+                "environment indicator",
+                "filament",
+                "laravel-filament"
+            ],
+            "support": {
+                "issues": "https://github.com/pxlrbt/filament-environment-indicator/issues",
+                "source": "https://github.com/pxlrbt/filament-environment-indicator/tree/v2.0.1"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/pxlrbt",
+                    "type": "github"
+                }
+            ],
+            "time": "2023-09-22T04:12:47+00:00"
         },
         {
             "name": "ralouphie/getallheaders",

@@ -18,21 +18,14 @@ use Livewire\Component;
 
 class ConferenceSignUpPage extends Component implements HasForms, HasActions
 {
-
-    use InteractsWithForms;
-    use InteractsWithActions;
+    use InteractsWithActions, InteractsWithForms;
 
     public int $conferenceId;
-    public int $price = 5000;
+    public int $price = 50000;
 
-    public function mount(): void
+    public function mount()
     {
         $this->conferenceId = 1;
-    }
-
-    public function render()
-    {
-        return view('livewire.conference-sign-up-page');
     }
 
     public function signUpAction(): Action
@@ -46,21 +39,27 @@ class ConferenceSignUpPage extends Component implements HasForms, HasActions
                         return '$' . count($get('attendees')) * 500;
                     }),
                 Repeater::make('attendees')
-                ->schema(Attendee::getForm()),
+                    ->schema(Attendee::getForm()),
             ])
-            ->action( function ( array $data){
-                collect($data['attendees'])->each(function ($attendee){
+            ->action(function (array $data) {
+                collect($data['attendees'])->each(function ($data) {
                     Attendee::create([
                         'conference_id' => $this->conferenceId,
-                        'name' => $attendee['name'],
-                        'email' => $attendee['email'],
                         'ticket_cost' => $this->price,
-                        'is_paid' => true
+                        'name' => $data['name'],
+                        'email' => $data['email'],
+                        'is_paid' => true,
                     ]);
                 });
-            })->after(function () {
+            })
+            ->after(function () {
                 Notification::make()->success()->title('Success!')
                     ->body(new HtmlString('You have successfully signed up for the conference.'))->send();
             });
+    }
+
+    public function render()
+    {
+        return view('livewire.conference-sign-up-page');
     }
 }

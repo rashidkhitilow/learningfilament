@@ -10,4 +10,6 @@ enum Region: string
     case BR  = 'BR';
     case DE  = 'DE';
     case FR  = 'FR';
+    case India = 'India';
+    case Online = 'Online';
 }

@@ -26,9 +26,10 @@ class Venue extends Model implements HasMedia
     {
         return $this->hasMany(Conference::class);
     }
-    public  static function getForm(): array
+
+    public static function getForm(): array
     {
-       return  [
+        return [
             TextInput::make('name')
                 ->required()
                 ->maxLength(255),
@@ -44,11 +45,10 @@ class Venue extends Model implements HasMedia
             Select::make('region')
                 ->enum(Region::class)
                 ->options(Region::class),
-           SpatieMediaLibraryFileUpload::make('images')
-           ->collection('venue-images')
-           ->multiple()
-           ->image()
-           ,
+            SpatieMediaLibraryFileUpload::make('images')
+                ->collection('venue-images')
+                ->multiple()
+                ->image(),
         ];
     }
 }

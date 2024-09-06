@@ -22,7 +22,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         Model::unguard();
-        CreateAction::configureUsing(function ($action){
+
+        CreateAction::configureUsing(function ($action) {
             return $action->slideOver();
         });
     }

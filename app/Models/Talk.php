@@ -37,16 +37,15 @@ class Talk extends Model
     {
         $this->status = TalkStatus::APPROVED;
 
-
-        // email the speaker
+        // email the speaker telling
         $this->save();
     }
+
     public function reject(): void
     {
         $this->status = TalkStatus::REJECTED;
 
-
-        // email the speaker
+        // email the speaker telling
         $this->save();
     }
 

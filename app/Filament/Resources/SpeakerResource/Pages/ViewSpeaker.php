@@ -17,6 +17,6 @@ class ViewSpeaker extends ViewRecord
             Actions\EditAction::make()
                 ->slideOver()
                 ->form(Speaker::getForm())
-            ];
+        ];
     }
 }

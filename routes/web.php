@@ -1,4 +1,5 @@
 <?php
 
-\Illuminate\Support\Facades\Route::get('/conference-sign-up', \App\Livewire\ConferenceSignUpPage::class);
+use App\Livewire\ConferenceSignUpPage;
 
+\Illuminate\Support\Facades\Route::get('/conference-sign-up', ConferenceSignUpPage::class);

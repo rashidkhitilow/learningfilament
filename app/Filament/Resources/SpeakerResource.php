@@ -23,7 +23,8 @@ class SpeakerResource extends Resource
 {
     protected static ?string $model = Speaker::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+//    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
+    protected static ?string $navigationGroup = 'Second Group';
 
     public static function form(Form $form): Form
     {
@@ -38,8 +39,6 @@ class SpeakerResource extends Resource
                 Tables\Columns\TextColumn::make('name')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('email')
-                    ->searchable(),
-                Tables\Columns\TextColumn::make('bio')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('twitter_handle')
                     ->searchable(),
@@ -69,55 +68,53 @@ class SpeakerResource extends Resource
     {
         return $infolist
             ->schema([
-                Section::make('Personal Heading Information')
+                Section::make('Personal Information')
                     ->columns(3)
-                ->schema([
-                    ImageEntry::make('avatar')
-                        ->circular(),
-                    Group::make()
-                        ->columnSpan(2)
-                        ->columns(2)
-                        ->schema([
-                            TextEntry::make('name'),
-                            TextEntry::make('email'),
-                            TextEntry::make('twitter_handle')
-                                ->label('Twitter')
-                                ->getStateUsing(function ($record) {
-                                    return '@'.$record['twitter_handle'];
-                                })
-                                ->url(function ($record){
-                                    return 'https://twitter.com/'.$record->twitter_handle;
-                                }),
-                            TextEntry::make('has_spoken')
-                                ->getStateUsing(function ($record) {
-                                    return $record->talks()->where('status', TalkStatus::APPROVED)
-                                            ->count() > 0 ? 'Previous Speaker' : 'Has No Spoken';
-                                })
+                    ->schema([
+                        ImageEntry::make('avatar')
+                            ->circular(),
+                        Group::make()
+                            ->columnSpan(2)
+                            ->columns(2)
+                            ->schema([
+                                TextEntry::make('name'),
+                                TextEntry::make('email'),
+                                TextEntry::make('twitter_handle')
+                                    ->label('Twitter')
+                                    ->getStateUsing(function ($record) {
+                                        return '@' . $record->twitter_handle;
+                                    })
+                                    ->url(function ($record) {
+                                        return 'https://twitter.com/'.$record->twitter_handle;
+                                    }),
+                                TextEntry::make('has_spoken')
+                                    ->getStateUsing(function ($record) {
+                                        return $record->talks()->where('status', TalkStatus::APPROVED)->count()
+                                            > 0 ? 'Previous Speaker' : 'Has Not Spoken';
+                                    })
                                 ->badge()
-                                ->color(function ($state){
-                                    if($state === 'Previous Speaker'){
+                                ->color(function ($state) {
+                                    if($state === 'Previous Speaker') {
                                         return 'success';
                                     }
-
                                     return 'primary';
-                                })
-                        ]),
-                ]),
-                Section::make('Other Information')
-                    ->schema([
-                        TextEntry::make('bio')
-                            ->html()
-                             ->extraAttributes(['class' => 'prose dark:prose-invert']),
-                        TextEntry::make('qualifications'),
+                                }),
+                            ]),
                     ]),
+                Section::make('Other Information')
+                ->schema([
+                    TextEntry::make('bio')
+                        ->extraAttributes(['class' => 'prose dark:prose-invert'])
+                        ->html(),
+                    TextEntry::make('qualifications'),
+                ])
             ]);
-
     }
 
     public static function getRelations(): array
     {
         return [
-            RelationManagers\TalksRelationManager::class
+            RelationManagers\TalksRelationManager::class,
         ];
     }
 

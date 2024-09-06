@@ -16,5 +16,4 @@ enum TalkStatus: string
             self::REJECTED => 'danger',
         };
     }
-
 }

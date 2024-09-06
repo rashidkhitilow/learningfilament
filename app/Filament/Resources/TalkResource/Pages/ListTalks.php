@@ -4,7 +4,6 @@ namespace App\Filament\Resources\TalkResource\Pages;
 
 use App\Enums\TalkStatus;
 use App\Filament\Resources\TalkResource;
-use App\Models\Talk;
 use Filament\Actions;
 use Filament\Resources\Components\Tab;
 use Filament\Resources\Pages\ListRecords;
@@ -12,13 +11,6 @@ use Filament\Resources\Pages\ListRecords;
 class ListTalks extends ListRecords
 {
     protected static string $resource = TalkResource::class;
-
-    protected function getHeaderActions(): array
-    {
-        return [
-            Actions\CreateAction::make(),
-        ];
-    }
 
     public function getTabs(): array
     {
@@ -29,14 +21,20 @@ class ListTalks extends ListRecords
                     return $query->where('status', TalkStatus::APPROVED);
                 }),
             'submitted' => Tab::make('Submitted')
-            ->modifyQueryUsing(function ($query) {
-                return $query->where('status', TalkStatus::SUBMITTED);
-            }),
+                ->modifyQueryUsing(function ($query) {
+                    return $query->where('status', TalkStatus::SUBMITTED);
+                }),
             'rejected' => Tab::make('Rejected')
-            ->modifyQueryUsing(function ($query) {
-                return $query->where('status', TalkStatus::REJECTED);
-            }),
+                ->modifyQueryUsing(function ($query) {
+                    return $query->where('status', TalkStatus::REJECTED);
+                }),
+        ];
+    }
 
+    protected function getHeaderActions(): array
+    {
+        return [
+            Actions\CreateAction::make(),
         ];
     }
 }
